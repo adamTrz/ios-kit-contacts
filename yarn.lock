@@ -4186,9 +4186,9 @@ react-is@^16.3.1:
   version "16.3.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.3.2.tgz#f4d3d0e2f5fbb6ac46450641eb2e25bf05d36b22"
 
-react-native-ios-kit@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/react-native-ios-kit/-/react-native-ios-kit-0.0.5.tgz#8599822f3e78e45fa1fd563890382e6b100e7f3b"
+react-native-ios-kit@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/react-native-ios-kit/-/react-native-ios-kit-0.0.6.tgz#2af3084c09f7ee354d2660b7fb619e992033a140"
   dependencies:
     color "^2.0.1"
     lodash "^4.17.4"

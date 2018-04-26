@@ -13,43 +13,39 @@ const data = [
   { firstName: 'Hank M.', lastName: 'Zakroff', id: Math.random() },
 ];
 
-// const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#';
-
 class AvatarExample extends React.Component {
   state = {
     data,
-    // sections: ALPHABET.split(''), // Optional!
   };
 
   groupBy = item => item.lastName.slice(0, 1);
 
   renderItem = ({ item }) => (
-    <View key={item.id} style={styles.item}>
+    <View style={styles.item}>
       <Body>{item.firstName}</Body>
       <Body style={styles.lastName}>{item.lastName}</Body>
     </View>
   );
 
   render() {
+    const { searchText } = this.props;
+    const items = this.state.data.filter(
+      person =>
+        person.firstName.includes(searchText) ||
+        person.lastName.includes(searchText)
+    );
     return (
-      <View style={styles.container}>
-        <GroupedList
-          items={this.state.data}
-          // sections={this.state.sections}
-          renderItem={this.renderItem}
-          groupBy={this.groupBy}
-        />
-      </View>
+      <GroupedList
+        items={items}
+        renderItem={this.renderItem}
+        groupBy={this.groupBy}
+        keyExtractor={item => item.id}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  constainer: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: 'green',
-  },
   item: {
     paddingHorizontal: 15,
     paddingVertical: 10,

@@ -13,7 +13,14 @@ import {
 import List from './List';
 
 class Contacts extends React.Component {
-  handleSearch = searchText => {};
+  state = {
+    searchText: '',
+  };
+
+  handleSearch = searchText => {
+    this.setState({ searchText });
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -23,9 +30,14 @@ class Contacts extends React.Component {
         </View>
         <View style={styles.header}>
           <Title1 style={styles.title}>Contacts</Title1>
-          <SearchBar animated withCancel onValueChange={this.handleSearch} />
+          <SearchBar
+            animated
+            withCancel
+            onValueChange={this.handleSearch}
+            value={this.state.searchText}
+          />
         </View>
-        <List />
+        <List searchText={this.state.searchText} />
       </View>
     );
   }
